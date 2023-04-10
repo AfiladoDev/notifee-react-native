@@ -556,4 +556,3 @@ dist
 android/libs/notifee_core_debug.aar
 package-lock.json
 yarn.lock
-ios/NotifeeCore
