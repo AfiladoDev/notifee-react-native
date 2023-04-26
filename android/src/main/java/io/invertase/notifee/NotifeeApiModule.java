@@ -4,6 +4,8 @@
 
 package io.invertase.notifee;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import app.notifee.core.Notifee;
@@ -221,6 +223,11 @@ public class NotifeeApiModule extends ReactContextBaseJavaModule {
         .getInitialNotification(
             getCurrentActivity(),
             (e, aBundle) -> NotifeeReactUtils.promiseResolver(promise, e, aBundle));
+    Activity activity = getCurrentActivity();
+    if (activity != null) {
+      Intent intent = activity.getIntent();
+      intent.removeExtra("notification");
+    }
   }
 
   @ReactMethod
